@@ -94,27 +94,64 @@ function btnFun(delBtn) {
 function editFun(editBtn) {
   // expN, expD, expA, expT - using this here does not work
   Array.from(editBtn).forEach((e) => {
-    e.addEventListener("click", (ev) => {
-      const siblings = ev.currentTarget.parentElement.childNodes;
+    e.addEventListener("click", handleClick)
+      
+    //   e.addEventListener("click", (ev) => {
+    //   console.log("edit",e.removeEventListener);
+    //   e.removeEventListener("click", (ev) => {
+    //     alert("listner removed.....")
+    //   },true);
+    //   const siblings = ev.currentTarget.parentElement.childNodes;
 
-      expType.value = siblings[1].innerText;
-      expName.value = siblings[2].innerText;
-      expDate.value = siblings[3].innerText;
-      expAmount.value = siblings[4].innerText.split(" ")[0];
-      ev.currentTarget.classList.add("update");
-      ev.currentTarget.innerText = "Update";
-      // working portion
-      updateValue(ev, siblings);
-    });
+      // expType.value = siblings[1].innerText;
+      // expName.value = siblings[2].innerText;
+      // expDate.value = siblings[3].innerText;
+      // expAmount.value = siblings[4].innerText.split(" ")[0];
+      // ev.currentTarget.classList.add("update");
+      // ev.currentTarget.innerText = "Update";
+      // // working portion
+      // updateValue(ev, siblings);
+    // });
   });
 }
 // Not working portion
+
+function handleClick(e){
+  console.log(e.target.classList.contains("update"))
+    const siblings = e.currentTarget.parentElement.childNodes;
+    console.log(siblings);
+  if(e.target.classList.contains("update")){
+    e.target.classList.remove("update");
+    e.target.classList.add("edit-btn");
+    e.target.innerText = "Edit";
+    siblings[1].innerText = expType.value;
+    siblings[2].innerText = expName.value;
+    siblings[3].innerText = expDate.value;
+    siblings[4].innerText = expAmount.value + " Rs";
+    expType.value = "choose-type";
+    expName.value = "";
+    expDate.value = "";
+    expAmount.value = "";
+  }
+  else if(e.target.classList.contains("edit-btn")){
+    e.target.classList.add("update");
+    e.target.classList.remove("edit-btn");
+    e.target.innerText = "Update";
+    expType.value = siblings[1].innerText;
+    expName.value = siblings[2].innerText;
+    expDate.value = siblings[3].innerText;
+    expAmount.value = siblings[4].innerText.split(" ")[0];
+    console.log("edit")
+  }
+
+}
 
 // updating the value if I hard code
 function updateValue(ev, siblings) {
   const updateBtn = ev.currentTarget;
   if (updateBtn.classList.contains("update")) {
     updateBtn.addEventListener("click", () => {
+      console.log("update",siblings,expType.value,expName.value,expDate.value,expAmount.value);
       siblings[1].innerText = expType.value;
       siblings[2].innerText = expName.value;
       siblings[3].innerText = expDate.value;
