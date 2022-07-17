@@ -147,15 +147,15 @@ function handleClick(e){
 }
 
 // updating the value if I hard code
-function updateValue(ev, siblings) {
-  const updateBtn = ev.currentTarget;
-  if (updateBtn.classList.contains("update")) {
-    updateBtn.addEventListener("click", () => {
-      console.log("update",siblings,expType.value,expName.value,expDate.value,expAmount.value);
-      siblings[1].innerText = expType.value;
-      siblings[2].innerText = expName.value;
-      siblings[3].innerText = expDate.value;
-      siblings[4].innerText = expAmount.value + " Rs";
-    });
-  }
-}
+// function updateValue(ev, siblings) {
+//   const updateBtn = ev.currentTarget;
+//   if (updateBtn.classList.contains("update")) {
+//     updateBtn.addEventListener("click", () => {
+//       console.log("update",siblings,expType.value,expName.value,expDate.value,expAmount.value);
+//       siblings[1].innerText = expType.value;
+//       siblings[2].innerText = expName.value;
+//       siblings[3].innerText = expDate.value;
+//       siblings[4].innerText = expAmount.value + " Rs";
+//     });
+//   }
+// }
