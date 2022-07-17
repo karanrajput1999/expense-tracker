@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Expense Tracker</h1>
+        <div id="details">
+            <select name="type" id="exp-type">
+                <option value="choose-type">Choose Type</option>
+                <option value="Debit-Card">Debit Card</option>
+                <option value="Credit-Card">Credit Card</option>
+                <option value="Cash">Cash</option>
+            </select>
+            <input type="number" id="exp-amount" placeholder="Type Amount...">
+            <input type="text" id="exp-name" placeholder="Type Expense Name...">
+            <input type="date" id="exp-date">
+            <button id="exp-btn">Add Expense</button>
+
+        </div>
+        <div id="data">
+            <table id="table">
+                <tr>
+                    <th>Serial</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Cash</td>
+                    <td>Grocery</td>
+                    <td>12-04-2022</td>
+                    <td>250</td>
+                    <td>x</td>
+                </tr> -->
+
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
